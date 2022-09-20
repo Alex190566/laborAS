@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="RU">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Заказ шаурмы</title>
+    </head>
+
+    <body>
+        <form action="" method="GET" name="Форма1">
+            
+            <fieldset>
+                <legend>Лаваш</legend>
+                <select name="Лаваш" size="4">
+                    <option disabled selected>Выберите тип лаваша</option>
+                     <option>Тонкий лаваш</option>
+                     <option>В лепешке пита</option>
+                     <option>В толстом лаваше</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Мясо</legend>
+                <select name="Мясо" size="5">
+                    <option disabled selected>Выберите мясо</option>
+                    <option>Курица</option>
+                    <option>Индейка</option>
+                    <option>Баранина</option>
+                    <option>Говядина</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Начинка</legend>
+            <select name="Начинка" multiple size="12">
+                <option disabled selected>Выберите начинку</option>
+                <optgroup label="Выберите добавки">
+                 <option>Лук ренчатый</option>
+                 <option>Капуста кочанная</option>
+                 <option>Помидоры</option>
+                 <option>Перец халапеньо</option>
+                 <option>Зелень</option>
+                </optgroup>
+                <optgroup label="Выберите соусы">
+                    <option>Майонез</option>
+                    <option>Кетчуп</option>
+                    <option>Сметана</option>
+                    <option>Фирменный соус</option>
+                </optgroup>
+            </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Начинка</legend>
+            <br>
+            <input type="checkbox" name="Начинка" id="checkbox1" value="Лук ренчатый">
+            <label for="checkbox1">Лук ренчатый</label>
+            <br>
+            <input type="checkbox" name="Начинка" id="checkbox2" value="Капуста кочанная">
+            <label for="checkbox2">Капуста кочанная</label>
+            <br>
+            <input type="checkbox" name="Начинка" id="checkbox3" value="Помидоры">
+            <label for="checkbox3">Помидоры</label>
+            <br>
+            <input type="checkbox" name="Начинка" id="checkbox4" value="Перец халапеньо">
+            <label for="checkbox4">Перец халапеньо</label>
+            <br>
+            <input type="checkbox" name="Начинка" id="checkbox5" value="Зелень">
+            <label for="checkbox5">Зелень</label>
+            <br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Соус</legend>
+            <br>
+            <input type="checkbox" name="Соус" id="checkbox6" value="Майонез">
+            <label for="checkbox6">Майонез</label>
+            <br>
+            <input type="checkbox" name="Соус7" id="checkbox7" value="Кетчуп">
+            <label for="checkbox7">Кетчуп</label>
+            <br>
+            <input type="checkbox" name="Соус" id="checkbox8" value="Сметана">
+            <label for="checkbox8">Сметана</label>
+            <br>
+            <input type="checkbox" name="Соус" id="checkbox9" value="Фирменный соус">
+            <label for="checkbox9">Фирменный соус</label>
+            <br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Тип оплаты</legend>
+            <br>
+            <input type="radio" name="Тип оплаты" id="radio1" value="Наличными курьеру">
+            <label for="radio1">Наличными курьеру</label>
+            <br>
+            <input type="radio" name="Тип оплаты" id="radio2" value="Банковской картой">
+            <label for="radio2">Банковской картой</label>
+            <br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Тип оплаты</legend>
+                <select name="Тип оплаты" size="3">
+                    <option disabled selected>Выберите тип оплаты</option>
+                     <option>Наличными курьеру</option>
+                     <option>Банковской картой</option>
+                </select>
+            </fieldset>
+            <br>
+            <button type="submit">ЗАКАЗАТЬ</button>
+            <br>
+            <br>
+            <button type="reset">ОЧИСТИТЬ ФОРМУ ЗАКАЗА</button>
+
+        </form>
+
+    </body>
+</html>
