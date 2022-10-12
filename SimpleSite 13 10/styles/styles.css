@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'PlayfairDisplay';
+    font-weight: 900;
+    font-style: normal;
+    src: url('../Fonts/PlayfairDisplay-Black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../Fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../Fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+}
+
+/* global reset */
+html, body, body div, div, h1, h3, h4, p, footer, header, main {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+}
+html * {
+    max-height: 1000000px;
+}
+
+/* structure */
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PlayfairDisplay', sans-serif;
+}
+header {
+    height: 68px;
+    flex: none;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(166 235 233);
+}
+footer {
+    height: 62px;
+    background-color: rgb(70 99 103); 
+    flex: none;
+}
+main {
+    flex: auto;
+    height: -68px;
+}
+
+/* header */
+h1 {
+    color: rgb(12 112 116);
+    line-height: 68px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+/* footer */
+h4 {
+    color: #fff;
+    line-height: 62px;
+    text-align: center;
+    font-style: normal;
+    flex: none;
+}
+
+/* main */
+.fon {
+    height: 100%;
+    background: url('../images/fon.png'), linear-gradient(rgb(204 233 231), rgb(178 203 198)), center center, no-repeat;
+    background-blend-mode: luminosity;
+    display: grid;
+    grid-template-areas: 'a b';
+}
+.foto {
+    height: 350px;
+    width: 350px;
+    margin-left: 100px;
+    margin-top: 100px;
+    background: url('../images/foto.png');
+    border-radius: 50%;
+    grid-area: a;
+}
+.text {
+    height: 400px;
+    width: 700px;
+    margin-top: 100px;
+    background-color: white;
+    opacity: 80%;
+    border-radius: 15% 0 0 2%;
+    overflow: auto;
+    color: #000;
+    grid-area: b;
+}
+h3 {
+    font-weight: 700;
+    text-align: center;
+    line-height: 60px;
+    font-size: 26px;
+}
+p {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: left;
+    line-height: 31px;
+}
+.bold {
+    font-weight: 700;
+}
