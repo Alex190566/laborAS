@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Carlito';
+    font-weight: 900;
+    font-style: normal;
+    src: url('../Fonts/Carlito-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Carlito';
+    font-weight: 700;
+    font-style: italic;
+    src: url('../Fonts/Carlito-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Carlito';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../Fonts/Carlito.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Carlito';
+    font-weight: normal;
+    font-style: italic;
+    src: url('../Fonts/Carlito-talic.woff2') format('woff2');
+}
+
+
+/* global reset */
+html, body, body div, div, h1, h3, h4, p, footer, header, main {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+    html * {
+        max-height: 1000000px;
+    }
+
+/* structure */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Carlito', sans-serif;
+}
+
+header {
+    height: 68px;
+    background-color: rgb(166 235 233);
+}
+
+footer {
+    height: 62px;
+    background-color: rgb(70 99 103);
+}
+
+main {
+    height: 100%;
+}
+
+/* header */
+h1 {
+    color: rgb(12 112 116);
+    line-height: 68px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+/* footer */
+h4 {
+    color: #fff;
+    line-height: 62px;
+    text-align: center;
+    font-style: normal;
+    flex: none;
+}
+
+/* main */
+.fon {
+    background: url('../images/fon1.png'), linear-gradient(rgb(204 233 231), rgb(178 203 198));
+    background-blend-mode: luminosity;
+    background-size: cover;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'a b';
+}
+
+.foto {
+    height: 350px;
+    width: 350px;
+    margin: 100px auto auto auto;
+    background: url('../images/foto.png');
+    border-radius: 50%;
+}
+
+.text {
+    height: 398px;
+    width: 700px;
+    margin: 100px auto auto auto;
+    padding: 10px;
+    background-color: white;
+    opacity: 80%;
+    color: #000;
+    overflow: auto;
+}
+
+h3 {
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    line-height: 60px;
+    font-size: 26px;
+}
+
+p {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 20px;
+    text-align: left;
+    line-height: 31px;
+}
