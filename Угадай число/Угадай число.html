@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <title>Угадай число Шестопалов</title>
+
+    <style>
+        @font-face {
+            font-family: 'BlobSpongeyLowercase';
+            font-weight: 900;
+            font-style: normal;
+            src: url('Fonts/BlobSpongeyLowercase.woff2') format('woff2');
+        }
+
+        global reset
+        html, body, body div, div, h1, h6, p, footer, header, main, button, input {
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        html * {
+            max-height: 1000000px;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'BlobSpongeyLowercase', sans-serif;
+            background: url('images/fon.png') center center no-repeat, linear-gradient(rgb(220 220 220 / 80%), rgb(220 220 220 / 80%));
+            background-size: cover;
+            background-blend-mode: luminosity;
+            min-height: 100%;
+            display: grid;
+            grid-template-rows: 180px auto 44px;
+        }
+
+        header {
+            height: 180px;
+        }
+
+        footer {
+            height: 44px;
+        }
+
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+            font-size: 55px;
+            color: rgb(119 88 45);
+        }
+
+        h6 {
+            text-align: center;
+            color: white;
+        }
+
+        p {
+            padding-top: 30px;
+            font-size: 45px;
+            text-align: center;
+            color: rgb(119 88 45);
+        }
+
+        div {
+            height: 100%;
+        }
+
+        #t {
+            display: none;
+        }
+
+        #ans {
+            display: none;
+        }
+
+        button {
+            height: 80px;
+            width: 300px;
+            margin-top: 30px;
+            margin-left: calc(50% - 150px);
+            background-color: rgb(119 88 45);
+            border-radius: 10px;
+            color: white;
+            font-size: 30px;
+        }
+
+        input {
+            height: 80px;
+            width: 100px;
+            margin-top: 30px;
+            margin-left: calc(50% - 50px);
+            background-color: white;
+            border-radius: 10px;
+            color: black;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Игра "Угадай число"</h1>
+    </header>
+
+    <main>
+        <div id="o">
+            <p id="again">Для начала игры нажмите кнопку</p>
+            <button type="button" id="b">Начать игру</button>
+        </div>
+        <div id="t">
+            <p>Введите число от 1 до 100</p>
+            <p id="c"></p>
+            <input type="text" id="i">
+            <button type="button" id="b2">Ок!</button>
+            <p id="ans"></p>
+        </div>
+    </main>
+
+    <footer>
+        <h6>Copyright &copy; SAV 2022</h6>
+    </footer>
+
+    <script>
+
+        let counter = 0;
+        let quest;
+        let n;
+
+        document.getElementById('b').onclick = function () {
+            document.getElementById('o').style.display = "none";
+            document.getElementById('t').style.display = "block";
+            document.getElementById('again').innerHTML = "Для начала игры нажмите кнопку";
+            counter = 0;
+            quest = Math.floor(Math.random() * 100 + 1);
+            console.log(quest);
+            document.getElementById('c').innerHTML = 'Попыток ' + counter;
+            document.getElementById('i').value = " ";
+        }
+
+        document.getElementById('b2').onclick = function () {
+            counter++;
+            document.getElementById('c').innerHTML = 'Попыток ' + counter;
+            n = document.getElementById('i').value;
+            console.log(n);
+            if (isNaN(n) | n == " ") {
+                document.getElementById('ans').style.display = "block";
+                document.getElementById('ans').innerHTML = "Надо ввести число";
+                document.getElementById('i').value = " ";
+            }
+            else if (quest == n) {
+                document.getElementById('ans').innerHTML = " ";
+                document.getElementById('c').innerHTML = " ";
+                document.getElementById('i').value = " ";
+                document.getElementById('t').style.display = "none";
+                document.getElementById('o').style.display = "block";
+                document.getElementById('again').innerHTML = 'Вы угадали с ' + counter + ' попыток. Сыграем еще раз?';
+            }
+            else if (quest > n) {
+                document.getElementById('ans').style.display = "block";
+                document.getElementById('ans').innerHTML = "Надо больше";
+            }
+            else {
+                document.getElementById('ans').style.display = "block";
+                document.getElementById('ans').innerHTML = "Надо меньше";
+            }
+        }
+
+    </script>
+</body>
+</html>
