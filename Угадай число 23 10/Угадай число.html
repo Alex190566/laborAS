@@ -129,14 +129,13 @@
 
     <script>
 
-        let counter = 0;
+        let counter;
         let quest;
         let n;
 
         document.getElementById('b').onclick = function () {
             document.getElementById('o').style.display = "none";
             document.getElementById('t').style.display = "block";
-            document.getElementById('again').innerHTML = "Для начала игры нажмите кнопку";
             counter = 0;
             quest = Math.floor(Math.random() * 100 + 1);
             console.log(quest);
@@ -154,13 +153,21 @@
                 document.getElementById('ans').innerHTML = "Надо ввести число";
                 document.getElementById('i').value = " ";
             }
+            else if (quest == n & counter == 2) {
+                document.getElementById('ans').innerHTML = " ";
+                document.getElementById('c').innerHTML = " ";
+                document.getElementById('i').value = " ";
+                document.getElementById('t').style.display = "none";
+                document.getElementById('o').style.display = "block";
+                document.getElementById('again').innerHTML = 'Вы угадали со ' + counter + ' попытки. Сыграем еще раз?';
+            }
             else if (quest == n) {
                 document.getElementById('ans').innerHTML = " ";
                 document.getElementById('c').innerHTML = " ";
                 document.getElementById('i').value = " ";
                 document.getElementById('t').style.display = "none";
                 document.getElementById('o').style.display = "block";
-                document.getElementById('again').innerHTML = 'Вы угадали с ' + counter + ' попыток. Сыграем еще раз?';
+                document.getElementById('again').innerHTML = 'Вы угадали с ' + counter + ' попытки. Сыграем еще раз?';
             }
             else if (quest > n) {
                 document.getElementById('ans').style.display = "block";
