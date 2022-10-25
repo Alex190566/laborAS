@@ -10,15 +10,17 @@
             font-family: 'a_LCDNovaObl';
             font-weight: normal;
             font-style: normal;
-            src: url('Fonts/a_LCDNovaObl.woff2') format('woff2');
+            src: url('a_LCDNovaObl.woff2') format('woff2');
         }
 
         .calc {
             display: grid;
+            margin-left: calc(50% - 210px);
+            margin-top: 10%;
             width: 420px;
             height: 380px;
-            background: rgb(185 182 182);
-            border: 5px solid rgb(185 182 182);
+            background: rgb(185, 182, 182);
+            border: 5px solid rgb(185, 182, 182);
             gap: 5px;
             grid-template-columns: repeat(5, 80px);
             grid-template-rows: repeat(6, 50px);
@@ -27,8 +29,8 @@
         .screen {
             grid-column: 1/6;
             grid-row: 1/3;
-            background: rgb(224 225 216);
-            font: 55px/90px a_LCDNovaObl;
+            background: rgb(224, 225, 216);
+            font: 55px/90px 'a_LCDNovaObl';
             color: black;
             text-align: right;
             padding: 10px;
@@ -102,7 +104,8 @@
         <div class="button digit">8</div>
         <div class="button digit">9</div>
         <div class="button action" data-action="divide">&divide;</div>
-        <div class="button action" data-action="exp">x^y</div>
+        <!-- <div class="button action" data-action="exp">x^y</div> -->
+        <div class="button action" data-action="exp"><span>x<sup>y</sup></span></div>
         <div class="button digit">0</div>
         <div class="button point">.</div>
         <div class="button eval">&equals;</div>
@@ -126,19 +129,23 @@
             memory1 = 0;
         });
         document.querySelector('.mr').addEventListener('click', function () {
-            scr.innerHTML = memory1;
+            if (memory1 !== null) render(memory1);
         });
         document.querySelector('.mplus').addEventListener('click', function () {
             if (memory1 !== null) {
-                render1(memory1 + +scr.innerHTML);
-            }
+                memory1 += +scr.innerHTML;
+            } else {
                 memory1 = +scr.innerHTML;
+            }
+            emptyflag = true;
         });
         document.querySelector('.mminus').addEventListener('click', function () {
             if (memory1 !== null) {
-                render1(memory1 - +scr.innerHTML);
+                memory1 -= scr.innerHTML;
+            } else {
+                memory1 = -scr.innerHTML;
             }
-                memory1 = +scr.innerHTML;
+            emptyflag = true;
         });
         document.querySelector('.eval').addEventListener('click', function () {
             if ((memory !== null) && action && !errorflag) {
@@ -149,12 +156,13 @@
             }
         });
         document.querySelectorAll('.action').forEach(item => item.addEventListener('click', function (e) {
+            console.log(this.dataset.action);
             if (!errorflag) {
                 if ((memory !== null) && action) {
                     evaluate();
                 }
                 memory = +scr.innerHTML;
-                action = e.target.dataset.action;
+                action = this.dataset.action;
                 emptyflag = true;
             }
         }));
@@ -236,25 +244,6 @@
                     }
                     if (num.match(/^0\.$/)) num = num.slice(0, -1); // 0.
                     scr.innerHTML = num;
-                }
-            }
-        }
-        function render1(num) {
-            if (isNaN(num) || (Math.abs(num) >= 10000000000000)) {
-                errorflag = true;
-                memory1 = 'ERROR!';
-            } else {
-                if (Math.abs(num) >= 1) {
-                    memory1 = parseFloat(num.toPrecision(13)); // 123456.123456
-                } else if (Math.abs(num) >= 0.000001) {
-                    memory1 = parseFloat(num.toFixed(12)); // 0.0000012345
-                } else {
-                    num = num.toFixed(12); // 0.0000000001
-                    while (num.match(/^0\.\d*0$/)) {
-                        num = num.slice(0, -1);
-                    }
-                    if (num.match(/^0\.$/)) num = num.slice(0, -1); // 0.
-                    memory1 = num;
                 }
             }
         }
